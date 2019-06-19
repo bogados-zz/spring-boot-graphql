@@ -1,0 +1,32 @@
+schema {
+    query : Query
+}
+
+type Query {
+    users: [User]
+    user(id: String): User
+}
+
+type Mutation {
+    createUser(input: CreateUserInput!):User!
+}
+
+type User {
+    id: String
+    name: String
+    age: Int
+    nationality: String
+    createdAt: String
+}
+
+type Article {
+    id: String
+    title: String
+    minutesRead: Int
+}
+
+input CreateUserInput {
+    name: String
+    age: Int
+    nationality: String
+}
