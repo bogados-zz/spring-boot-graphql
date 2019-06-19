@@ -20,15 +20,8 @@ public class AllUsersDataFetcher implements GraphQLQueryResolver {
         this.userService = userService;
     }
 
-    public List<User> getUsers(DataFetchingEnvironment env) {
-        User user = env.getSource();
-        List<User> friends;
-        if (user != null) {
-            friends = userService.findByIdIn(user.getFriendsIds());
-        } else {
-            friends = userService.findAll();
-        }
-        return friends;
+    public List<User> getUsers() {
+        return userService.findAll();
     }
 
     public User getUser(String id) {
